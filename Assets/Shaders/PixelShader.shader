@@ -39,7 +39,7 @@ Shader "Hidden/PixelShader"
                 o.uv = v.uv;
                 return o;
             }
-
+            //Initializing Pixel Vaules
             float _pixels;
             float _pw;
             float _ph;
@@ -51,7 +51,7 @@ Shader "Hidden/PixelShader"
             {
                 _dx = _pw * (1 / _pixels);
                 _dy = _ph * (1 / _pixels);
-                float2 coord = float2( _dx * floor(i.uv.x / _dx), _dy * floor(i.uv.y / _dy));
+                float2 coord = float2( _dx * floor(i.uv.x / _dx), _dy * floor(i.uv.y / _dy)); //This is creating a new UV map to be fed into the main texture
                 fixed4 col = tex2D(_MainTex, coord);
                 // just invert the colors
                 col.rgb = 1 - col.rgb;
